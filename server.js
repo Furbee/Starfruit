@@ -55,6 +55,21 @@ app.get("/callback", function (request, response) {
   });
 });
 
+app.get('/myendpoint', function (request, response) {
+  var loggedInSpotifyApi = new SpotifyWebApi();
+  console.log(request.headers['authorization'].split(' ')[1]);
+  loggedInSpotifyApi.setAccessToken(request.headers['authorization'].split(' ')[1]);
+  // Search for a track!
+  loggedInSpotifyApi.getMyTopTracks()
+    .then(function(data) {
+      console.log(data.body);
+      response.send(data.body);
+    }, function(err) {
+      console.error(err);
+    });
+  
+});
+
 //-------------------------------------------------------------//
 var listener = app.listen(8888, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8888
