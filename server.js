@@ -5,9 +5,6 @@
 var express = require('express');
 var app = express();
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
@@ -16,22 +13,44 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/dreams", function (request, response) {
-  response.send(dreams);
+
+//-------------------------------------------------------------//
+
+
+// init Spotify API wrapper
+var SpotifyWebApi = require('spotify-web-api-node');
+
+// Replace with your redirect URI, required scopes, and show_dialog preference
+var redirectUri = "https://berry-session.glitch.me/callback";
+var scopes = ['user-top-read'];
+var showDialog = true;
+
+// The API object we'll use to interact with the API
+var spotifyApi = new SpotifyWebApi({
+  clientId : process.env.CLIENT_ID,
+  clientSecret : process.env.CLIENT_SECRET,
+  redirectUri : redirectUri
 });
 
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", function (request, response) {
-  dreams.push(request.query.dream);
-  response.sendStatus(200);
+app.get("/authorize", function (request, response) {
+  var authorizeURL = spotifyApi.createAuthorizeURL(scopes, null, showDialog);
+  console.log(authorizeURL)
+  response.send(authorizeURL);
 });
 
-// Simple in-memory store for now
-var dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
+// Exchange Authorization Code for an Access Token
+app.get("/callback", function (request, response) {
+  var authorizationCode = request.query.code;
+  
+  spotifyApi.authorizationCodeGrant(authorizationCode)
+  .then(function(data) {
+    response.redirect(`/#access_token=${data.body['access_token']}&refresh_token=${data.body['refresh_token']}`)
+  }, function(err) {
+    console.log('Something went wrong when retrieving the access token!', err.message);
+  });
+});
+
+//-------------------------------------------------------------//
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
