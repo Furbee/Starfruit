@@ -27,18 +27,29 @@ $(function() {
   
   if (hash.access_token) {
     $.get({url: '/myendpoint', headers: {"Authorization": `Bearer ${hash.access_token}`}}, function(data) {
-      // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
-      console.log(data)
+      // "Data" is the array of artist objects we get from the API. See server.js for the function that returns it.
+      //console.log(data.body.items)
 
       var title = $('<h3>Your top artists on Spotify:</h3>');
       title.prependTo('#data-container');
 
+      //extract genres per track
+      var array = [];
+      data.items.forEach(function(item)
+      {
+        item.genres.forEach(function(genre)
+        {
+          array.push(genre);
+        });
+      });
+      console.log(array);
       // For each of the tracks, create an element
       data.items.forEach(function(track) {
         var trackDiv = $('<li class="track"></li>');
-        trackDiv.text(track.name);
+        trackDiv.text(track.genres);
         trackDiv.appendTo('#data-container ol');
       });
+
 
     });
   }

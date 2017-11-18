@@ -55,18 +55,20 @@ app.get("/callback", function (request, response) {
   });
 });
 
+
 app.get('/myendpoint', function (request, response) {
   var loggedInSpotifyApi = new SpotifyWebApi();
   console.log(request.headers['authorization'].split(' ')[1]);
   loggedInSpotifyApi.setAccessToken(request.headers['authorization'].split(' ')[1]);
   // Search for a track!
-  loggedInSpotifyApi.getMyTopTracks()
+  loggedInSpotifyApi.getMyTopArtists()
     .then(function(data) {
       console.log(data.body);
       response.send(data.body);
     }, function(err) {
       console.error(err);
     });
+
   
 });
 
