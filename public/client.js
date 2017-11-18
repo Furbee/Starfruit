@@ -12,7 +12,7 @@ $(function() {
       window.location = data;
     });
   });
-  
+
   const hash = window.location.hash
     .substring(1)
     .split('&')
@@ -24,11 +24,14 @@ $(function() {
       return initial;
     }, {});
     window.location.hash = '';
-  
+
   if (hash.access_token) {
     $.get({url: '/myendpoint', headers: {"Authorization": `Bearer ${hash.access_token}`}}, function(data) {
       // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
       console.log(data)
+      
+      var divStartpage = document.getElementById('startpage');
+      divStartpage.style.display='none';
 
       var title = $('<h3>Your top artists on Spotify:</h3>');
       title.prependTo('#data-container');
