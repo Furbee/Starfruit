@@ -3,21 +3,70 @@
 
 /* You might want to try something fancier: */
 /* less: http://lesscss.org/ */
+@import url('https://fonts.googleapis.com/css?family=Kanit:800|Roboto|Yantramanav:900');
 
-* {
-  box-sizing: border-box;
+#icon{
+  height: 80px;
+  width: 80px;
 }
 
+p{
+  color:white;
+}
+
+.parent{
+  display: flex;
+  height: 650px;
+}
+
+.child{
+  margin:auto;
+}
+/*#f8f886 */
 body {
-  padding: 5vh 5vw;
+  background: linear-gradient(to bottom right, #fff18d, #00ffce,  #bdff91,  #fff18d); /* Standard syntax */
+}
+html {
+    margin: 0;
+    height: 100%;
 }
 
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
+.navbar-default{
+  background-color:transparent;
 }
 
-.nicejob {
-  text-decoration: line-through;
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+  font-size: 60px;
+  color: #fff18d;
+  font-family: 'Kanit', sans-serif;
+  margin-top:4px;
+}
+
+
+.btn-outline-primary{
+  color:black;
+  background-color:white;
+  border: 2px solid #00ffce;
+  color: #00ffce;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+.btn-outline-primary:hover{
+  transition: 1s color;
+  color:#fff18d;
+}
+
+
+
+h1{
+  color:white;
+  font-family: 'Yantramanav', sans-serif;
+  font-size:65px;
+}
+
+h4{
+  color:white;
+  font-size:20px;
+  font-family: 'Roboto', sans-serif;
 }
