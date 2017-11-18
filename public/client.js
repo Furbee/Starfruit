@@ -30,7 +30,7 @@ $(function() {
       // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
       console.log(data)
 
-      var title = $('<h3>Your top tracks on Spotify:</h3>');
+      var title = $('<h3>Your top artists on Spotify:</h3>');
       title.prependTo('#data-container');
 
       // For each of the tracks, create an element

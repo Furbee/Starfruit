@@ -16,21 +16,26 @@ app.get("/", function (request, response) {
 
 //-------------------------------------------------------------//
 
-
 // init Spotify API wrapper
 var SpotifyWebApi = require('spotify-web-api-node');
 
 // Replace with your redirect URI, required scopes, and show_dialog preference
-var redirectUri = "https://berry-session.glitch.me/callback";
+var redirectUri = 'http://localhost:8888/callback/';
 var scopes = ['user-top-read'];
 var showDialog = true;
 
+var id = 'cdebafbca1df44048ca43691aabae756';
+var secret = '9388bacd84dc407a939d167c9c5daa55';
+
 // The API object we'll use to interact with the API
 var spotifyApi = new SpotifyWebApi({
-  clientId : process.env.CLIENT_ID,
-  clientSecret : process.env.CLIENT_SECRET,
+  clientId : id,
+  clientSecret : secret,
   redirectUri : redirectUri
 });
+spotifyApi.clientId = id;
+spotifyApi.redirect = secret;
+console.log(spotifyApi.clientId);
 
 app.get("/authorize", function (request, response) {
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes, null, showDialog);
@@ -50,9 +55,26 @@ app.get("/callback", function (request, response) {
   });
 });
 
-//-------------------------------------------------------------//
-
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+app.get('/myendpoint', function (request, response) {
+  var loggedInSpotifyApi = new SpotifyWebApi();
+  console.log(request.headers['authorization'].split(' ')[1]);
+  loggedInSpotifyApi.setAccessToken(request.headers['authorization'].split(' ')[1]);
+  // Search for a track!
+  loggedInSpotifyApi.getMyTopTracks()
+    .then(function(data) {
+      console.log(data.body);
+      response.send(data.body);
+    }, function(err) {
+      console.error(err);
+    });
+  
 });
+
+//-------------------------------------------------------------//
+var listener = app.listen(8888, function(){
+    console.log('Listening on port ' + listener.address().port); //Listening on port 8888
+});
+// listen for requests :)
+/*var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});*/
