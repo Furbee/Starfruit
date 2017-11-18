@@ -70,3 +70,75 @@ h4{
   font-size:20px;
   font-family: 'Roboto', sans-serif;
 }
+
+#resultpage{
+  visibility: hidden;
+}
+
+#star-me{
+  visibility: hidden;
+}
+
+#login{
+  cursor:pointer;
+}
+
+/* ------------------- */
+.box {
+  position: relative;
+  display: block;
+  width: 650px;
+  height: 450px;
+  background: none;
+}
+
+
+.graph-1 {
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  width: 12%;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(128, 222, 234, 0.6) 0%, rgba(224, 247, 250, 0.6) 100%);
+  animation: graph-1 1s 1;
+}
+
+.graph-2 {
+  position: absolute;
+  top: 100%;
+  left: 22%;
+  width: 12%;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(38, 198, 218, 0.6) 0%, rgba(224, 247, 250, 0.6) 100%);
+  animation: graph-2 1s 1;
+}
+
+.graph-3 {
+  position: absolute;
+  top: 100%;
+  left: 39%;
+  width: 12%;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(0, 151, 167, 0.6) 0%, rgba(224, 247, 250, 0.6) 100%);
+  animation: graph-3 1s 1;
+}
+
+.graph-4 {
+  position: absolute;
+  top: 100%;
+  left: 56%;
+  width: 12%;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(0, 96, 100, 0.6) 0%, rgba(224, 247, 250, 0.6) 100%);
+  animation: graph-4 1s 1;
+}
+
+.graph-5 {
+  position: absolute;
+  top: 100%;
+  left: 73%;
+  width: 12%;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(178, 235, 242, 0.6) 0%, rgba(224, 247, 250, 0.6) 100%);
+  animation: graph-5 1s 1;
+}
