@@ -16,23 +16,25 @@ app.get("/", function (request, response) {
 
 //-------------------------------------------------------------//
 
-var CLIENT_ID = "51d39e57869544a18a202f8c008ce593";
-var CLIENT_SECRET = "f7e2e5d79d6b4207817fc3f0a4601d29";
-
 // init Spotify API wrapper
 var SpotifyWebApi = require('spotify-web-api-node');
 
 // Replace with your redirect URI, required scopes, and show_dialog preference
-var redirectUri = "http://localhost:8888/#";
+var redirectUri = 'http://localhost:8888/callback/';
 var scopes = ['user-top-read'];
 var showDialog = true;
 
+var id = '51d39e57869544a18a202f8c008ce593';
+var secret = '51d39e57869544a18a202f8c008ce593';
+
 // The API object we'll use to interact with the API
 var spotifyApi = new SpotifyWebApi({
-  clientId : process.env.CLIENT_ID,
-  clientSecret : process.env.CLIENT_SECRET,
+  clientId : id,
+  clientSecret : secret,
   redirectUri : redirectUri
 });
+
+console.log(id);
 
 app.get("/authorize", function (request, response) {
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes, null, showDialog);
