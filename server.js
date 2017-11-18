@@ -24,8 +24,8 @@ var redirectUri = 'http://localhost:8888/callback/';
 var scopes = ['user-top-read'];
 var showDialog = true;
 
-var id = '51d39e57869544a18a202f8c008ce593';
-var secret = '51d39e57869544a18a202f8c008ce593';
+var id = 'cdebafbca1df44048ca43691aabae756';
+var secret = '9388bacd84dc407a939d167c9c5daa55';
 
 // The API object we'll use to interact with the API
 var spotifyApi = new SpotifyWebApi({
@@ -33,8 +33,9 @@ var spotifyApi = new SpotifyWebApi({
   clientSecret : secret,
   redirectUri : redirectUri
 });
-
-console.log(id);
+spotifyApi.clientId = id;
+spotifyApi.redirect = secret;
+console.log(spotifyApi.clientId);
 
 app.get("/authorize", function (request, response) {
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes, null, showDialog);
