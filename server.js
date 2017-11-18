@@ -16,12 +16,14 @@ app.get("/", function (request, response) {
 
 //-------------------------------------------------------------//
 
+var CLIENT_ID = "51d39e57869544a18a202f8c008ce593";
+var CLIENT_SECRET = "f7e2e5d79d6b4207817fc3f0a4601d29";
 
 // init Spotify API wrapper
 var SpotifyWebApi = require('spotify-web-api-node');
 
 // Replace with your redirect URI, required scopes, and show_dialog preference
-var redirectUri = "https://berry-session.glitch.me/callback";
+var redirectUri = "http://localhost:8888/#";
 var scopes = ['user-top-read'];
 var showDialog = true;
 
@@ -51,8 +53,10 @@ app.get("/callback", function (request, response) {
 });
 
 //-------------------------------------------------------------//
-
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+var listener = app.listen(8888, function(){
+    console.log('Listening on port ' + listener.address().port); //Listening on port 8888
 });
+// listen for requests :)
+/*var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});*/
