@@ -80,7 +80,7 @@ $(function() {
 
         {type : 'hipster', genres : ["alternative rock", "indie","indiecoustica", "indie rock", "indie pop", "lounge", "jazz" , "blues", "folk", "folk rock", "brittish folk", "lilith", "chill out"]},
         {type : 'singersong', genres : ["sing songwriter","pop","rock","neo mellow","acoustic pop", "album rock","chill out","soft rock","blues-rock", "country","swedish pop"]},
-        {type : 'ph', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
+        {type : 'party', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
         {type : 'underground', genres : ["electronic", "synth pop", "trance", "house", "euro dance", "screamo", "punk", "urban contemporary", "electro house", "new rave", "disco house", "emo"]},
         {type : 'hiphop', genres : ["rap rock","trap music","rap", "juggalo", "crunk", "hyphy", "bass music", "dubstep", "grime", "turntablism", "gangster rap", "soul", "funk","motown"]},
         {type : 'metalhead', genres : ["metal", "hard rock", "rap metal", "nu metal", "metalcore", "stoner metal", "alternative metal", "done", "punk", "emo", "screamo", "dreamo", "protopunk", "djent", "cowpunk"]}];
@@ -190,9 +190,19 @@ test = function() {
       highest_value = userData[i].value;
     }
   }
-  
+  console.log(most_popular.type);
   console.log("most popular: ",most_popular)
 
+
+  /* Skapar din frukt och dess text */
+  var fruitPicture = $('<center><img src="assets/ph.png" class="fruitpic"></center>');
+  fruitPicture.appendTo('#fruitYou');
+  var fruitHeader = $('<center><h5 id="yourFruit">' + most_popular.type + '</h5></center>');
+  fruitHeader.appendTo('#fruitYou');
+  var fruitInfo = $('<center><p class="fruitText"> Lorem e dolor.</p></center>');
+  fruitInfo.appendTo('#fruitYou');
+
+  /*--------*/
 
   var divStartpage = document.getElementById('startpage');
   divStartpage.style.display='none';
