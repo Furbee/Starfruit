@@ -168,12 +168,28 @@ $(function() {
       buttonFruit.style.visibility='visible';
 
       userData = match;
+
     });
   }
 });
 
+
 test = function() {
   console.log("test");
+
+  //set the first to the most popular, loop through to find the most popular and return the type and value
+  var most_popular = userData[0];
+  var highest_value = userData[0].value;
+  for(let i = 1; i < userData.length; i++)
+  {
+    if(userData[i].value > highest_value)
+    {
+      most_popular = userData[i];
+      highest_value = userData[i].value;
+    }
+  }
+  
+  console.log("most popular: ",most_popular)
 
   var divStartpage = document.getElementById('startpage');
   divStartpage.style.display='none';
