@@ -46,7 +46,7 @@ app.get("/authorize", function (request, response) {
 // Exchange Authorization Code for an Access Token
 app.get("/callback", function (request, response) {
   var authorizationCode = request.query.code;
-  
+
   spotifyApi.authorizationCodeGrant(authorizationCode)
   .then(function(data) {
     response.redirect(`/#access_token=${data.body['access_token']}&refresh_token=${data.body['refresh_token']}`)
@@ -69,7 +69,6 @@ app.get('/myendpoint', function (request, response) {
       console.error(err);
     });
 
-  
 });
 
 //-------------------------------------------------------------//
