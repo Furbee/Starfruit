@@ -16,7 +16,7 @@ p{
 
 .parent{
   display: flex;
-  height: 650px;
+  height: 700px;
 }
 
 .child{
@@ -24,7 +24,7 @@ p{
 }
 /*#f8f886 */
 body {
-  background: linear-gradient(to bottom right, #fff18d, #00ffce,  #bdff91,  #fff18d); /* Standard syntax */
+  background: linear-gradient(to bottom right, #00ffce,  #bdff91,  #fff18d); /* Standard syntax */
 }
 html {
     margin: 0;
@@ -54,29 +54,52 @@ html {
 
 .btn-outline-primary:hover{
   transition: 1s color;
+  transition: 3s background-color;
   color:#fff18d;
+  background-color:#00ffce;
 }
 
-
+#startimg{
+  height: 450px;
+  width: 450px;
+}
 
 h1{
   color:white;
   font-family: 'Yantramanav', sans-serif;
-  font-size:65px;
+  font-size:68px;
 }
+
+
 
 h4{
   color:white;
-  font-size:20px;
+  font-size:24px;
   font-family: 'Roboto', sans-serif;
 }
 
-#resultpage{
-  visibility: hidden;
+.fruitpic{
+  height: 408px;
+  width: 408px;
 }
 
-#star-me{
-  visibility: hidden;
+.fruitText{
+  font-size: 25px;
+}
+
+#yourFruit{
+  font-size: 45px;
+  color:white;
+  font-family: 'Yantramanav', sans-serif;
+}
+
+#startpage{
+  /*visibility: hidden;*/
+  display: none;
+}
+
+#resultpage{
+  display: none;
 }
 
 #login{
