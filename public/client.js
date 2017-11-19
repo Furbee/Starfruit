@@ -7,6 +7,7 @@ var userData;
 
 //The data type mapping the character types to the description and corresponding image.
 const info_holder = [
+
 {type: 'hipster', title: "Hipster Turnip", description: "Taylor Swift who?! Vintage and mustaches are life, and a basement brewed organic IPA is the way to accompany them. The hipster turnip likes to stream music at low bitrate to sound more like the old days. The hipster is of course a vegetable, because there is nothing original with being a fruit.", image: "assets/hipster.png"},
 {type: 'singersong', title: "Singer-songwriter Orange", description: "Cuddle up around the fire. Being melancholic and naked are not only ways to enjoy life, but also characteristics of beautiful, hearth-felt music. The Singer-songwriter Oranges are rarely seen at partys except when there is a guitar present and the focus can be directed at them. This is not unusual as they are loaded with C-me-vitamin.", image: "assets/singer_songwriter.png"},
 {type: 'party', title: "Party Pinapple", description: "Let the bass go boom and turn up the juice. Put your hands in the sky, fist pump the air to pulp with one hand like you are at Tomorrowland. The party pineapple jumps along to the beat like there is no tomorrow.", image: "assets/ph_deltagare.png"},
@@ -80,7 +81,7 @@ $(function() {
 
         {type : 'hipster', genres : ["alternative rock", "indie","indiecoustica", "indie rock", "indie pop", "lounge", "jazz" , "blues", "folk", "folk rock", "brittish folk", "lilith", "chill out"]},
         {type : 'singersong', genres : ["sing songwriter","pop","rock","neo mellow","acoustic pop", "album rock","chill out","soft rock","blues-rock", "country","swedish pop"]},
-        {type : 'ph', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
+        {type : 'party', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
         {type : 'underground', genres : ["electronic", "synth pop", "trance", "house", "euro dance", "screamo", "punk", "urban contemporary", "electro house", "new rave", "disco house", "emo"]},
         {type : 'hiphop', genres : ["rap rock","trap music","rap", "juggalo", "crunk", "hyphy", "bass music", "dubstep", "grime", "turntablism", "gangster rap", "soul", "funk","motown"]},
         {type : 'metalhead', genres : ["metal", "hard rock", "rap metal", "nu metal", "metalcore", "stoner metal", "alternative metal", "done", "punk", "emo", "screamo", "dreamo", "protopunk", "djent", "cowpunk"]}];
@@ -178,7 +179,6 @@ $(function() {
 
 test = function() {
   console.log("test");
-
   //set the first to the most popular, loop through to find the most popular and return the type and value
   var most_popular = userData[0];
   var highest_value = userData[0].value;
@@ -190,9 +190,32 @@ test = function() {
       highest_value = userData[i].value;
     }
   }
-  
+  console.log(most_popular.type);
   console.log("most popular: ",most_popular)
 
+  var myTitle = "";
+  var myImage = "";
+  var myDesc = "";
+  for(let i = 0; i < info_holder.length; i++)
+  {
+    if(info_holder[i].type === most_popular.type)
+    {
+      myTitle = info_holder[i].title;
+      myDesc = info_holder[i].description;
+      myImage = info_holder[i].image;
+    }
+  }
+
+
+  /* Skapar din frukt och dess text */
+  var fruitPicture = $('<center><img src="'+ myImage +'" class="fruitpic"></center>');
+  fruitPicture.appendTo('#fruitYou');
+  var fruitHeader = $('<center><h5 id="yourFruit">' + myTitle + '</h5></center>');
+  fruitHeader.appendTo('#fruitYou');
+  var fruitInfo = $('<center><p class="fruitText">'+ myDesc + '</p></center>');
+  fruitInfo.appendTo('#fruitYou');
+
+  /*--------*/
 
   var divStartpage = document.getElementById('startpage');
   divStartpage.style.display='none';
@@ -202,6 +225,8 @@ test = function() {
   divResultpage.style.visibility='visible';
     /* ----------------------- */
     // hipster-stapel
+    //
+
   var heightH = userData[0].value;
   var heightHipster = heightH + "%";
   var topH = 100 - heightH;
@@ -217,7 +242,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // sing-stapel
-  var heightS = userData[1].value;;
+  var heightS = userData[1].value;
   var heightSinger = heightS + "%";
   var topS = 100 - heightS;
   var topSinger = topS + "%";
@@ -232,7 +257,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // paradise-stapel
-  var heightPh = userData[2].value;;
+  var heightPh = userData[2].value;
   var heightParadise = heightPh + "%";
   var topPh = 100 - heightPh;
   var topParadise = topPh + "%";
@@ -247,7 +272,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //underground
-  var heightUg = userData[3].value;;
+  var heightUg = userData[3].value;
   var heightUnder = heightUg + "%";
   var topUg = 100 - heightUg;
   var topUnder = topUg + "%";
@@ -261,19 +286,49 @@ test = function() {
   "100% { height:"+ heightUnder +";}"+ "}";
   document.body.appendChild(createdStyleTag);
 
-  //addict
-  var heightA = 10;
-  var heightAddict = heightA + "%";
-  var topA = 100 - heightA;
-  var topAddict = topA + "%";
-  console.log(heightAddict);
-  console.log(topAddict);
-  document.getElementById("addict").style.height = heightAddict;
-  document.getElementById("addict").style.top = topAddict;
+  //hiphopp
+  var heightHip = 20;
+  var heightHiphop = heightHip + "%";
+  var topHip = 100 - heightHip;
+  var topHiphop = topHip + "%";
+  console.log(heightHiphop);
+  console.log(topHiphop);
+  document.getElementById("hip").style.height = heightHiphop;
+  document.getElementById("hip").style.top = topHiphop;
   var createdStyleTag = document.createElement("style");
   createdStyleTag.textContent = "@keyframes graph-5{"+
   "0% { width: height: 0%; top: 100%;}"+
-  "100% { height:"+ heightAddict +";}"+ "}";
+  "100% { height:"+ heightHiphop +";}"+ "}";
+  document.body.appendChild(createdStyleTag);
+
+  //metalhead
+  /*
+  var heightMh = userData[5].value;
+  var heightMetal = heightMh + "%";
+  var topMh = 100 - heightMh;
+  var topMetal = topMh + "%";
+  console.log(heightMetal);
+  console.log(topMetal);
+  document.getElementById("metal").style.height = heightMetal;
+  document.getElementById("metal").style.top = topMetal;
+  var createdStyleTag = document.createElement("style");
+  createdStyleTag.textContent = "@keyframes graph-6{"+
+  "0% { width: height: 0%; top: 100%;}"+
+  "100% { height:"+ heightMetal +";}"+ "}";
+  document.body.appendChild(createdStyleTag);
+  */
+  var heightHip = userData[5].value;
+  var heightHiphop = heightHip + "%";
+  var topHip = 100 - heightHip;
+  var topHiphop = topHip + "%";
+  console.log(heightHiphop);
+  console.log(topHiphop);
+  document.getElementById("metal").style.height = heightHiphop;
+  document.getElementById("metal").style.top = topHiphop;
+  var createdStyleTag = document.createElement("style");
+  createdStyleTag.textContent = "@keyframes graph-6{"+
+  "0% { width: height: 0%; top: 100%;}"+
+  "100% { height:"+ heightHiphop +";}"+ "}";
   document.body.appendChild(createdStyleTag);
 
 }
