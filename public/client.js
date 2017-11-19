@@ -32,9 +32,9 @@ $(function() {
       // "Data" is the array of artist objects we get from the API. See server.js for the function that returns it.
       //console.log(data.body.items)
 
-      var title = $('<h3>Your top artists on Spotify:</h3>');
+/*      var title = $('<h3>Your top artists on Spotify:</h3>');
       title.prependTo('#data-container');
-
+*/
       //extract genres per track
       var array = [];
       data.items.forEach(function(item)
@@ -95,8 +95,6 @@ $(function() {
       console.log("NORMALIZING COMPLETE")
       normalize(match, getValues)
 
-
-
       //function which can be customized with another auxilary function
       function myMap(arrayIn, fn)
       {
@@ -129,6 +127,7 @@ $(function() {
               arrayOut[i].value += map.get(genres[j])
             }
           }
+          
         }
         return arrayOut
       }
@@ -145,14 +144,19 @@ $(function() {
         for(let j = 0; j < arrayIn.length; j++)
         {
           arrayIn[j].value /= sum
+          arrayIn[j].value *= 100;
+          arrayIn[j].value = Math.floor(arrayIn[j].value)
         }
       }
+
+      /*
       // For each of the tracks, create an element (not needed)
       data.items.forEach(function(track) {
         var trackDiv = $('<li class="track"></li>');
         trackDiv.text(track.genres);
         trackDiv.appendTo('#data-container ol');
       });
+      */
 
       // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
       console.log(data)
@@ -162,7 +166,7 @@ $(function() {
       var buttonFruit = document.getElementById('star-me');
       buttonFruit.style.visibility='visible';
 
-      userData = data;
+      userData = match;
     });
   }
 });
@@ -177,7 +181,8 @@ test = function() {
   var divResultpage = document.getElementById('resultpage');
   divResultpage.style.visibility='visible';
     /* ----------------------- */
-  var heightH = 20;
+    // hipster-stapel
+  var heightH = userData[0].value;
   var heightHipster = heightH + "%";
   var topH = 100 - heightH;
   var topHipster = topH + "%";
@@ -192,7 +197,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // sing-stapel
-  var heightS = 20;
+  var heightS = userData[1].value;;
   var heightSinger = heightS + "%";
   var topS = 100 - heightS;
   var topSinger = topS + "%";
@@ -207,7 +212,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // paradise-stapel
-  var heightPh = 100;
+  var heightPh = userData[2].value;;
   var heightParadise = heightPh + "%";
   var topPh = 100 - heightPh;
   var topParadise = topPh + "%";
@@ -222,7 +227,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //underground
-  var heightUg = 40;
+  var heightUg = userData[3].value;;
   var heightUnder = heightUg + "%";
   var topUg = 100 - heightUg;
   var topUnder = topUg + "%";
@@ -237,7 +242,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //addict
-  var heightA = 70;
+  var heightA = 10;
   var heightAddict = heightA + "%";
   var topA = 100 - heightA;
   var topAddict = topA + "%";
