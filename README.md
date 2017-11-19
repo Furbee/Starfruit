@@ -12,6 +12,8 @@ Then navigate to ```http://localhost:8888/``` in your favorite browser!
 #### Created during Spotify DevX in Stockholm 2017. 
 A Glitch.com version is available here https://berry-session.glitch.me/
 
+Big thanks to [Arielle (Ari) Vaniderstine](https://glitch.com/@arirawr) for providing the foundation for the Spotify API setup.
+
 #### Authors:
 - [Emmeli Fall](https://github.com/newstevejobs)
 - [Thim Lohse](https://github.com/ThimLohse)
