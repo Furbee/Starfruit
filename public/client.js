@@ -287,7 +287,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //hiphopp
-  var heightHip = 20;
+  var heightHip = userData[4].value;
   var heightHiphop = heightHip + "%";
   var topHip = 100 - heightHip;
   var topHiphop = topHip + "%";
