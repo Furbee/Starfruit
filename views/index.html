@@ -31,10 +31,12 @@
     <div class="row">
       <div class="col-sm-6 parent" id="grad">
         <div class="child">
+            <canvas id="myChart" width="400" height="400"></canvas>
           <center><h1>Who are you? </h1></center>
           <center><h4>how mainstream is your music taste? are you the hipster in the group? or are you waiting for the drop at the dancefloor? it's time to find out if you really are who you think you are. </h4></center>
           <center><button type="button" class="btn btn-outline-primary sign-in" id="login">sign in to Spotify!</button></center>
-          <center><input type="button" value="star me" class="btn btn-outline-primary fruit-me" id="star-me" onclick="test();" /></center>
+          <!-- <center><input type="button" value="star me" class="btn btn-outline-primary fruit-me" id="star-me" onclick="test();" /></center> -->
+          <center><input type="button" value="star me" class="btn btn-outline-primary fruit-me" id="star-me" onclick="charttest();" /></center>
       </div>
       </div>
       <div class="col-sm-6">
@@ -45,7 +47,9 @@
 </div>
 
 <div id="resultpage">
-  <div class="container">
+    
+    <canvas id="myChart" width="400" height="400"></canvas>
+ <!-- <div class="container">
   <div class="row">
     <div class="col-sm-6 parent">
   <div class="box child">
@@ -57,8 +61,8 @@
  </div>
 </div>
 </div>
-</div>
-</div>
+</div> -->
+</div> 
 
 
   </main>
@@ -78,5 +82,6 @@
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
     <script src="/client.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   </body>
 </html>
