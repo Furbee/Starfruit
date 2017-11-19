@@ -4,8 +4,6 @@
 // by default, you've got jQuery,
 // add other scripts at the bottom of index.html
 var userData;
-//
-//var Chart = require('../node_modules/chart.js');
 
 //The data type mapping the character types to the description and corresponding image.
 const info_holder = [
@@ -85,9 +83,7 @@ $(function() {
         {type : 'party', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
         {type : 'underground', genres : ["electronic", "synth pop", "trance", "house", "euro dance", "screamo", "punk", "urban contemporary", "electro house", "new rave", "disco house", "emo"]},
         {type : 'hiphop', genres : ["rap rock","trap music","rap", "juggalo", "crunk", "hyphy", "bass music", "dubstep", "grime", "turntablism", "gangster rap", "soul", "funk","motown"]},
-
-        {type : 'metalhead', genres : ["metal", "hard rock", "rap metal", "nu metal", "metalcore", "stoner metal", "alternative metal", "done", "punk", "emo", "screamo", "dreamo", "protopunk", "djent", "cowpunk"]}];  
-
+        {type : 'metalhead', genres : ["metal", "hard rock", "rap metal", "nu metal", "metalcore", "stoner metal", "alternative metal", "done", "punk", "emo", "screamo", "dreamo", "protopunk", "djent", "cowpunk"]}];
 
       //print the category dictionary
       console.log("category", category);
@@ -179,69 +175,6 @@ $(function() {
   }
 });
 
-charttest = function() {
-// hipster-stapel
-var heightH = userData[0].value;
-// sing-stapel
-var heightS = userData[1].value;
-// paradise-stapel
-var heightPh = userData[2].value;
-//underground
-var heightUg = userData[3].value;
-//addict
-var heightA = 10;
-var heightAddict = heightA + "%";
-
-var ctx = document.getElementById("myChart").getContext('2d');
-
-var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-gradientStroke.addColorStop(0, '#80b6f4');
-gradientStroke.addColorStop(1, '#f49080');
-
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Hipster", "Singer-songwriter", "Party", "Underground", "Addict"],
-        datasets: [{
-        backgroundColor : gradientStroke, // Put the gradient here as a fill color
-        data: [heightH, heightS, heightPh, heightUg, heightAddict],            
-        borderWidth: 3
-        }]
-    },
-    options: {
-        legend: {
-         display: false,
-        },
-        tooltips: {
-          enabled: false
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true,
-                    display : false
-                },
-                gridLines: {
-                  display : false,
-                  drawBorder: false,
-              }
-            }],
-            xAxes: [{
-              gridLines: {
-                display : false,
-            },
-            ticks   : {
-              beginAtZero:true,
-              //display : false
-          },
-          }]
-        }
-    }
-});
-
-}
-
-/*
 
 test = function() {
   console.log("test");
@@ -277,6 +210,7 @@ test = function() {
 
   var divResultpage = document.getElementById('resultpage');
   divResultpage.style.visibility='visible';
+    /* ----------------------- */
     // hipster-stapel
   var heightH = userData[0].value;
   var heightHipster = heightH + "%";
@@ -351,9 +285,8 @@ test = function() {
   "0% { width: height: 0%; top: 100%;}"+
   "100% { height:"+ heightAddict +";}"+ "}";
   document.body.appendChild(createdStyleTag);
-}
-*/
 
+}
 
 $(document).ready(function(){
   $("#star-me").click(function(){
@@ -361,4 +294,3 @@ $(document).ready(function(){
   });
 
 });
-

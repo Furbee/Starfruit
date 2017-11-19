@@ -7,7 +7,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "chart.js": "^2.7.1",
     "express": "^4.15.3",
     "spotify-web-api-node": "^2.5.0"
   },
