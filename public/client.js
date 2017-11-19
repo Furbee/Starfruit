@@ -9,7 +9,7 @@ var userData;
 const info_holder = [
 {type: 'hipster', title: "Hipster Turnip", description: "Taylor Swift who?! Vintage and mustaches are life, and a basement brewed organic IPA is the way to accompany them. The hipster turnip likes to stream music at low bitrate to sound more like the old days. The hipster is of course a vegetable, because there is nothing original with being a fruit.", image: "srcurl"},
 {type: 'singersong', title: "Singer-songwriter Orange", description: "Cuddle up around the fire. Being melancholic and naked are not only ways to enjoy life, but also characteristics of beautiful, hearth-felt music. The Singer-songwriter Oranges are rarely seen at partys except when there is a guitar present and the focus can be directed at them. This is not unusual as they are loaded with C-me-vitamin.", image: "assets/ph.png"},
-{type: 'party', title: "Party Pinapple", description: "Let the bass go boom and turn up the juice. Put your hands in the sky, fist pump the air to pulp with one hand like you are at Tomorrowland. The party pineapple jumps along to the beat like there is no tomorrow.", image: "imagesrc"},
+{type: 'party', title: "Party Pinapple", description: "Let the bass go boom and turn up the juice. Put your hands in the sky, fist pump the air to pulp with one hand like you are at Tomorrowland. The party pineapple jumps along to the beat like there is no tomorrow.", image: "assets/ph.png"},
 {type: 'underground', title: "Underground Lemon", description: "It's dark. Really dark. And the fog machine is on full power. Somewhere in the darkness a mystical creature is lurking below the surface of the normal world. The Underground Lemon's pulse is in sync with the bpm of the low frequency bass of its favorite electronic music. ", image: "imagesrc"},
 {type: 'hiphop', title: "Hiphop Apple", description: "When the pimp's in the crib, drop it like it's hot...as fresh apple pie. The Hiphop Apple also known as the rap-apple is a rhythmical beast with swagger in each step it takes. Freshness is amongst the staple goods of this fruit. If you aint limpin', you aint pimpin', and the priest of the hiphop chapel, is the notorious rap-apple.", image: "imagesrc"},
 {type: 'metalhead', title: "Metalhead Kiwi", description: "Bite the head of a bat and bang your head to the screaming guitars. Drums like stampeding herds of mammoths and black as the primary color. The Metalhead Kiwi is friends with darkness and buddy with the beast. A selective music lover to the bone, who wipes its butt with sheets of pop lyrics.", image: "imagesrc"}
@@ -286,10 +286,10 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //hiphopp
-  var heightHip = userData[4].value;
+  var heightHip = 20;
   var heightHiphop = heightHip + "%";
   var topHip = 100 - heightHip;
-  var topHiphopt = topHip + "%";
+  var topHiphop = topHip + "%";
   console.log(heightHiphop);
   console.log(topHiphop);
   document.getElementById("hip").style.height = heightHiphop;
@@ -301,9 +301,10 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //metalhead
+  /*
   var heightMh = userData[5].value;
   var heightMetal = heightMh + "%";
-  var topMh = 100 - heightA;
+  var topMh = 100 - heightMh;
   var topMetal = topMh + "%";
   console.log(heightMetal);
   console.log(topMetal);
@@ -313,6 +314,20 @@ test = function() {
   createdStyleTag.textContent = "@keyframes graph-6{"+
   "0% { width: height: 0%; top: 100%;}"+
   "100% { height:"+ heightMetal +";}"+ "}";
+  document.body.appendChild(createdStyleTag);
+  */
+  var heightHip = userData[4].value;
+  var heightHiphop = heightHip + "%";
+  var topHip = 100 - heightHip;
+  var topHiphop = topHip + "%";
+  console.log(heightHiphop);
+  console.log(topHiphop);
+  document.getElementById("metal").style.height = heightHiphop;
+  document.getElementById("metal").style.top = topHiphop;
+  var createdStyleTag = document.createElement("style");
+  createdStyleTag.textContent = "@keyframes graph-6{"+
+  "0% { width: height: 0%; top: 100%;}"+
+  "100% { height:"+ heightHiphop +";}"+ "}";
   document.body.appendChild(createdStyleTag);
 
 }
