@@ -59,7 +59,7 @@ $(function() {
         {
            map.set(item, 1);
         }
-       
+
       });
       console.log(map);
 
@@ -127,7 +127,7 @@ $(function() {
               arrayOut[i].value += map.get(genres[j])
             }
           }
-          
+
         }
         return arrayOut
       }
@@ -149,22 +149,15 @@ $(function() {
         }
       }
 
-      /*
-      // For each of the tracks, create an element (not needed)
-      data.items.forEach(function(track) {
-        var trackDiv = $('<li class="track"></li>');
-        trackDiv.text(track.genres);
-        trackDiv.appendTo('#data-container ol');
-      });
-      */
-
       // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
       console.log(data)
-      var buttonSign = document.getElementById('login');
+      var buttonSign = document.getElementById('welcomepage');
       buttonSign.style.display='none';
 
-      var buttonFruit = document.getElementById('star-me');
-      buttonFruit.style.visibility='visible';
+      $("#startpage").show(0);
+
+      /*var buttonFruit = document.getElementById('startpage');
+      buttonFruit.style.visibility='visible';*/
 
       userData = match;
     });
@@ -257,3 +250,10 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
 }
+
+$(document).ready(function(){
+  $("#star-me").click(function(){
+    $("#resultpage").show(100);
+  });
+
+});
