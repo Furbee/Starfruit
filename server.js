@@ -25,7 +25,7 @@ var scopes = ['user-top-read'];
 var showDialog = true;
 
 var id = 'cdebafbca1df44048ca43691aabae756';
-var secret = '';
+var secret = 'SECRET_ID';
 
 // The API object we'll use to interact with the API
 var spotifyApi = new SpotifyWebApi({
