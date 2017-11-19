@@ -178,7 +178,6 @@ $(function() {
 
 test = function() {
   console.log("test");
-
   //set the first to the most popular, loop through to find the most popular and return the type and value
   var most_popular = userData[0];
   var highest_value = userData[0].value;
@@ -193,13 +192,26 @@ test = function() {
   console.log(most_popular.type);
   console.log("most popular: ",most_popular)
 
+  var myTitle = "";
+  var myImage = "";
+  var myDesc = "";
+  for(let i = 0; i < info_holder.length; i++)
+  {
+    if(info_holder[i].type === most_popular.type)
+    {
+      myTitle = info_holder[i].title;
+      myDesc = info_holder[i].description;
+      myImage = info_holder[i].image;
+    }
+  }
+
 
   /* Skapar din frukt och dess text */
-  var fruitPicture = $('<center><img src="assets/ph.png" class="fruitpic"></center>');
+  var fruitPicture = $('<center><img src="'+ myImage +'" class="fruitpic"></center>');
   fruitPicture.appendTo('#fruitYou');
-  var fruitHeader = $('<center><h5 id="yourFruit">' + most_popular.type + '</h5></center>');
+  var fruitHeader = $('<center><h5 id="yourFruit">' + myTitle + '</h5></center>');
   fruitHeader.appendTo('#fruitYou');
-  var fruitInfo = $('<center><p class="fruitText"> Lorem e dolor.</p></center>');
+  var fruitInfo = $('<center><p class="fruitText">'+ myDesc + '</p></center>');
   fruitInfo.appendTo('#fruitYou');
 
   /*--------*/
@@ -212,6 +224,8 @@ test = function() {
   divResultpage.style.visibility='visible';
     /* ----------------------- */
     // hipster-stapel
+    //
+
   var heightH = userData[0].value;
   var heightHipster = heightH + "%";
   var topH = 100 - heightH;
@@ -227,7 +241,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // sing-stapel
-  var heightS = userData[1].value;;
+  var heightS = userData[1].value;
   var heightSinger = heightS + "%";
   var topS = 100 - heightS;
   var topSinger = topS + "%";
@@ -242,7 +256,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   // paradise-stapel
-  var heightPh = userData[2].value;;
+  var heightPh = userData[2].value;
   var heightParadise = heightPh + "%";
   var topPh = 100 - heightPh;
   var topParadise = topPh + "%";
@@ -257,7 +271,7 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
   //underground
-  var heightUg = userData[3].value;;
+  var heightUg = userData[3].value;
   var heightUnder = heightUg + "%";
   var topUg = 100 - heightUg;
   var topUnder = topUg + "%";
@@ -271,19 +285,34 @@ test = function() {
   "100% { height:"+ heightUnder +";}"+ "}";
   document.body.appendChild(createdStyleTag);
 
-  //addict
-  var heightA = 10;
-  var heightAddict = heightA + "%";
-  var topA = 100 - heightA;
-  var topAddict = topA + "%";
-  console.log(heightAddict);
-  console.log(topAddict);
-  document.getElementById("addict").style.height = heightAddict;
-  document.getElementById("addict").style.top = topAddict;
+  //hiphopp
+  var heightHip = userData[4].value;
+  var heightHiphop = heightHip + "%";
+  var topHip = 100 - heightHip;
+  var topHiphopt = topHip + "%";
+  console.log(heightHiphop);
+  console.log(topHiphop);
+  document.getElementById("hip").style.height = heightHiphop;
+  document.getElementById("hip").style.top = topHiphop;
   var createdStyleTag = document.createElement("style");
   createdStyleTag.textContent = "@keyframes graph-5{"+
   "0% { width: height: 0%; top: 100%;}"+
-  "100% { height:"+ heightAddict +";}"+ "}";
+  "100% { height:"+ heightHiphop +";}"+ "}";
+  document.body.appendChild(createdStyleTag);
+
+  //metalhead
+  var heightMh = userData[5].value;
+  var heightMetal = heightMh + "%";
+  var topMh = 100 - heightA;
+  var topMetal = topMh + "%";
+  console.log(heightMetal);
+  console.log(topMetal);
+  document.getElementById("metal").style.height = heightMetal;
+  document.getElementById("metal").style.top = topMetal;
+  var createdStyleTag = document.createElement("style");
+  createdStyleTag.textContent = "@keyframes graph-6{"+
+  "0% { width: height: 0%; top: 100%;}"+
+  "100% { height:"+ heightMetal +";}"+ "}";
   document.body.appendChild(createdStyleTag);
 
 }
