@@ -69,7 +69,7 @@ $(function() {
         {
            map.set(item, 1);
         }
-       
+
       });
       console.log(map);
 
@@ -77,12 +77,13 @@ $(function() {
       var total = 0;
 
       const category = [
-      {type: 'hipster', genres: ["alternative rock", "indie","indiecoustica", "indie rock", "indie pop", "lounge",
-                   "jazz" , "blues", "folk", "folk rock", "brittish folk", "lilith", "chill out"]},
-      {type: 'singersong', genres: ["sing songwriter","pop","rock","neo mellow","acoustic pop","album rock","chill out","soft rock","blues-rock","country","swedish pop"]},
-      {type: 'party', genres: ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
-      {type : 'underground', genres: ["electronic", "synth pop", "trance", "house", "euro dance", "screamo", "punk", "urban contemporary", "electro house", "new rave", "disco house", "emo"]}
-      ]
+
+        {type : 'hipster', genres : ["alternative rock", "indie","indiecoustica", "indie rock", "indie pop", "lounge", "jazz" , "blues", "folk", "folk rock", "brittish folk", "lilith", "chill out"]},
+        {type : 'singersong', genres : ["sing songwriter","pop","rock","neo mellow","acoustic pop", "album rock","chill out","soft rock","blues-rock", "country","swedish pop"]},
+        {type : 'ph', genres : ["pop", "dance pop", "tropical house", "viralpop", "pop rap", "house", "teen pop", "euro pop", "trip hop", "swedish pop"]},
+        {type : 'underground', genres : ["electronic", "synth pop", "trance", "house", "euro dance", "screamo", "punk", "urban contemporary", "electro house", "new rave", "disco house", "emo"]},
+        {type : 'hiphop', genres : ["rap rock","trap music","rap", "juggalo", "crunk", "hyphy", "bass music", "dubstep", "grime", "turntablism", "gangster rap", "soul", "funk","motown"]},
+        {type : 'metalhead', genres : ["metal", "hard rock", "rap metal", "nu metal", "metalcore", "stoner metal", "alternative metal", "done", "punk", "emo", "screamo", "dreamo", "protopunk", "djent", "cowpunk"]}];
 
       //print the category dictionary
       console.log("category", category);
@@ -137,7 +138,7 @@ $(function() {
               arrayOut[i].value += map.get(genres[j])
             }
           }
-          
+
         }
         return arrayOut
       }
@@ -159,22 +160,15 @@ $(function() {
         }
       }
 
-      /*
-      // For each of the tracks, create an element (not needed)
-      data.items.forEach(function(track) {
-        var trackDiv = $('<li class="track"></li>');
-        trackDiv.text(track.genres);
-        trackDiv.appendTo('#data-container ol');
-      });
-      */
-
       // "Data" is the array of track objects we get from the API. See server.js for the function that returns it.
       console.log(data)
-      var buttonSign = document.getElementById('login');
+      var buttonSign = document.getElementById('welcomepage');
       buttonSign.style.display='none';
 
-      var buttonFruit = document.getElementById('star-me');
-      buttonFruit.style.visibility='visible';
+      $("#startpage").show(0);
+
+      /*var buttonFruit = document.getElementById('startpage');
+      buttonFruit.style.visibility='visible';*/
 
       userData = match;
     });
@@ -283,3 +277,10 @@ test = function() {
   document.body.appendChild(createdStyleTag);
 
 }
+
+$(document).ready(function(){
+  $("#star-me").click(function(){
+    $("#resultpage").show(100);
+  });
+
+});
