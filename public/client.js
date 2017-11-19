@@ -316,7 +316,7 @@ test = function() {
   "100% { height:"+ heightMetal +";}"+ "}";
   document.body.appendChild(createdStyleTag);
   */
-  var heightHip = userData[4].value;
+  var heightHip = userData[5].value;
   var heightHiphop = heightHip + "%";
   var topHip = 100 - heightHip;
   var topHiphop = topHip + "%";
