@@ -1,4 +1,4 @@
-Starfruit Beta
+Starfruit :star2::peach:
 =========================
 
 Did you know that they just discovered a magical band between your music taste and your fruit-you? we've shrinked that sweet science into this generator. GO bananas!
